@@ -13,7 +13,7 @@ with open(
 setup(
     name='emosent-py',
     packages=['emosent'],
-    version='0.1.4',
+    version='0.1.5',
     license='MIT',
     description='Python module to get Sentiment Rankings for Unicode Emojis.',
     long_description=LONG_DESCRIPTION,
@@ -22,7 +22,7 @@ setup(
     author_email='omkar@fintel.ai',
     url='https://fintel.ai',
     download_url=(
-        'https://github.com/FintelLabs/emosent-py/archive/0.1.4.zip'
+        'https://github.com/FintelLabs/emosent-py/archive/0.1.5.zip'
     ),
     keywords=[
         'emoji', 'sentiment', 'analysis', 'ranking', 'emoticon', 'polarity'

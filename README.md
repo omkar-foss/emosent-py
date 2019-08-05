@@ -13,6 +13,11 @@ Repository Link: http://hdl.handle.net/11356/1048
 
 This project is inspired by [emoji-sentiment](https://github.com/dematerializer/emoji-sentiment), a similar utility written in JavaScript.
 
+## Emoji Support
+
+The complete listed of Emojis to Sentiment Ranking supported by this project 
+can be found at 
+[Emoji Sentiment Ranking v1.0](http://kt.ijs.si/data/Emoji_sentiment_ranking/).
 
 ## Installation
 
@@ -61,11 +66,13 @@ Output:
  'sentiment_score': 0.221}
 ```
 
-
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FintelLabs/emosent-py/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, 
+see the 
+[tags on this repository](https://github.com/FintelLabs/emosent-py/tags). 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for more details.
+This project is licensed under the MIT License - see the 
+[LICENSE.txt](LICENSE.txt) file for more details.
