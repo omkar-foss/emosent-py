@@ -21,6 +21,46 @@ You can install emosent-py from using `pip`:
 pip install emosent-py
 ```
 
+## Usage
+
+#### Example 1
+
+```python
+from emosent import get_emoji_sentiment_rank
+get_emoji_sentiment_rank('❤')
+```
+Output:
+```python 
+{'unicode_codepoint': '0x2764',
+ 'occurrences': 8050,
+ 'position': 0.746943086,
+ 'negative': 355.0,
+ 'neutral': 1334.0,
+ 'positive': 6361.0,
+ 'unicode_name': 'HEAVY BLACK HEART',
+ 'unicode_block': 'Dingbats',
+ 'sentiment_score': 0.746}
+```
+
+#### Example 2
+
+```python
+from emosent import get_emoji_sentiment_rank
+get_emoji_sentiment_rank('😂')
+```
+Output:
+```python 
+{'unicode_codepoint': '0x1f602',
+ 'occurrences': 14622,
+ 'position': 0.805100583,
+ 'negative': 3614.0,
+ 'neutral': 4163.0,
+ 'positive': 6845.0,
+ 'unicode_name': 'FACE WITH TEARS OF JOY',
+ 'unicode_block': 'Emoticons',
+ 'sentiment_score': 0.221}
+```
+
 
 ## Versioning
 

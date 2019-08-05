@@ -13,6 +13,7 @@
 
 import csv
 import logging
+from os import path
 
 logging.basicConfig(
     level=logging.INFO,
@@ -65,4 +66,8 @@ def get_emoji_sentiment_rank(emoji):
 
 
 EMOJI_SENTIMENT_DICT = _build_dict_from_csv(
-    'emosent/data/Emoji_Sentiment_Data_v1.0.csv')
+    path.join(
+        path.abspath(path.dirname(__file__)),
+        'data/Emoji_Sentiment_Data_v1.0.csv'
+    )
+)
