@@ -27,7 +27,11 @@ def _build_dict_from_csv(csv_path):
 
     emoji_sentiment_rankings = {}
 
-    with open(csv_path, newline='') as csv_file:
+    # MrMindy:
+    # Adding the encoding. At least on Windows, I tested it before, the terminal displays an error that implies
+    # with the charset. Adding the UTF-8, everything runs smoothly.
+
+    with open(csv_path, newline='', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file)
         _header_row = next(csv_reader)
         for row in csv_reader:
