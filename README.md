@@ -1,41 +1,44 @@
 # emosent-py
 
-emosent-py is a Python utility package to get Sentiment Rankings for Unicode Emojis. 
+emosent-py is a Python utility package to get Sentiment Rankings for Unicode Emojis.
 
 Based on the research by Kralj Novak P, Smailović J, Sluban B, Mozetič I
 (2015) on _Sentiment of Emojis_.
 
 Journal Link:
-https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144296
+<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144296>
 
 CSV Data acquired from CLARIN repository,
-Repository Link: http://hdl.handle.net/11356/1048
+Repository Link: <http://hdl.handle.net/11356/1048>
 
 This project is inspired by [emoji-sentiment](https://github.com/dematerializer/emoji-sentiment), a similar utility written in JavaScript.
 
 ## Emoji Support
 
-The complete listed of Emojis to Sentiment Ranking supported by this project 
-can be found at 
+The complete listed of Emojis to Sentiment Ranking supported by this project
+can be found at
 [Emoji Sentiment Ranking v1.0](http://kt.ijs.si/data/Emoji_sentiment_ranking/).
 
 ## Installation
 
 You can install emosent-py from using `pip`:
+
 ```bash
 pip install emosent-py
 ```
 
 ## Usage
 
-#### Example 1
+### Example 1
 
 ```python
 from emosent import get_emoji_sentiment_rank
 get_emoji_sentiment_rank('❤')
 ```
+
 Output:
-```python 
+
+```python
 {'unicode_codepoint': '0x2764',
  'occurrences': 8050,
  'position': 0.746943086,
@@ -47,7 +50,7 @@ Output:
  'sentiment_score': 0.746}
 ```
 
-#### Example 2
+### Example 2
 
 ```python
 from emosent import get_emoji_sentiment_rank
@@ -56,8 +59,10 @@ from emosent import get_emoji_sentiment_rank
 # mapped to the specified character.
 get_emoji_sentiment_rank('😂')
 ```
+
 Output:
-```python 
+
+```python
 {'unicode_codepoint': '0x1f602',
  'occurrences': 14622,
  'position': 0.805100583,
@@ -69,7 +74,7 @@ Output:
  'sentiment_score': 0.221}
 ```
 
-#### Example 3
+### Example 3
 
 ```python
 from emosent import get_emoji_sentiment_rank_multiple
@@ -78,8 +83,10 @@ from emosent import get_emoji_sentiment_rank_multiple
 # extracts emoji sentiment ranks and their respective positions in the text.
 get_emoji_sentiment_rank_multiple('well done buddy! 😁👏')
 ```
+
 Output:
-```python 
+
+```python
 # Here, the emojis are found at positions 17 and 18 in the specified text.
 [{'text_position': 17,
   'emoji_sentiment_rank': {'unicode_codepoint': '0x1f601',
@@ -106,11 +113,11 @@ Output:
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, 
-see the 
-[tags on this repository](https://github.com/FintelLabs/emosent-py/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available,
+see the
+[tags on this repository](https://github.com/FintelLabs/emosent-py/tags).
 
 ## License
 
-This project is licensed under the MIT License - see the 
+This project is licensed under the MIT License - see the
 [LICENSE.txt](LICENSE.txt) file for more details.
