@@ -14,6 +14,7 @@
 import csv
 import logging
 from os import path
+import re
 
 logging.basicConfig(
     level=logging.INFO,
@@ -27,10 +28,9 @@ def _build_dict_from_csv(csv_path):
 
     emoji_sentiment_rankings = {}
 
-    # MrMindy:
-    # Adding the encoding. At least on Windows, I tested it before, the terminal displays an error that implies
-    # with the charset. Adding the UTF-8, everything runs smoothly.
-
+    # Explicit use of UTF-8 encoding is required while reading Emojis from CSV
+    # to avoid errors in systems where UTF-8 is not the default encoding (e.g. Windows).
+    # Credits to MrMindy for this fix.
     with open(csv_path, newline='', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file)
         _header_row = next(csv_reader)
@@ -63,10 +63,32 @@ def _build_dict_from_csv(csv_path):
     return emoji_sentiment_rankings
 
 
-def get_emoji_sentiment_rank(emoji):
-    """ Returns the Sentiment Data mapped to the specified Emoji. """
+def get_emoji_sentiment_rank(char):
+    """ Returns the emoji sentiment rank mapped to the specified character. """
 
-    return EMOJI_SENTIMENT_DICT[emoji]
+    return EMOJI_SENTIMENT_DICT.get(char.strip())
+
+
+def get_emoji_sentiment_rank_multiple(text):
+    """
+        Parses the input text character by character and extracts emoji 
+        sentiment ranks and their respective positions in the text.
+    """
+
+    emoji_results = []
+
+    for index, char in enumerate(text.strip()):
+        if char.isalnum():
+            continue
+
+        sentiment_rank = EMOJI_SENTIMENT_DICT.get(char)
+        if sentiment_rank:
+            emoji_results.append({
+                'text_position': index,
+                'emoji_sentiment_rank': sentiment_rank
+            })
+
+    return emoji_results
 
 
 EMOJI_SENTIMENT_DICT = _build_dict_from_csv(

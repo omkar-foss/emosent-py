@@ -51,6 +51,9 @@ Output:
 
 ```python
 from emosent import get_emoji_sentiment_rank
+
+# This function returns the emoji sentiment rank 
+# mapped to the specified character.
 get_emoji_sentiment_rank('😂')
 ```
 Output:
@@ -64,6 +67,41 @@ Output:
  'unicode_name': 'FACE WITH TEARS OF JOY',
  'unicode_block': 'Emoticons',
  'sentiment_score': 0.221}
+```
+
+#### Example 3
+
+```python
+from emosent import get_emoji_sentiment_rank_multiple
+
+# Parses the input text character by character and 
+# extracts emoji sentiment ranks and their respective positions in the text.
+get_emoji_sentiment_rank_multiple('well done buddy! 😁👏')
+```
+Output:
+```python 
+# Here, the emojis are found at positions 17 and 18 in the specified text.
+[{'text_position': 17,
+  'emoji_sentiment_rank': {'unicode_codepoint': '0x1f601',
+   'occurrences': 2189,
+   'position': 0.796151187,
+   'negative': 278.0,
+   'neutral': 648.0,
+   'positive': 1263.0,
+   'unicode_name': 'GRINNING FACE WITH SMILING EYES',
+   'unicode_block': 'Emoticons',
+   'sentiment_score': 0.45}},
+ {'text_position': 18,
+  'emoji_sentiment_rank': {'unicode_codepoint': '0x1f44f',
+   'occurrences': 2336,
+   'position': 0.787130164,
+   'negative': 243.0,
+   'neutral': 634.0,
+   'positive': 1459.0,
+   'unicode_name': 'CLAPPING HANDS SIGN',
+   'unicode_block': 'Miscellaneous Symbols and Pictographs',
+   'sentiment_score': 0.521}}]
+
 ```
 
 ## Versioning
